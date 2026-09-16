@@ -12,10 +12,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
     <style>
         * {
             margin: 0;
@@ -24,689 +20,274 @@
             scroll-behavior: smooth;
         }
 
-        :root {
-            --bg: #07111f;
-            --bg-light: #0c1b2d;
-            --card: rgba(16, 34, 54, 0.72);
-            --primary: #55d6ff;
-            --secondary: #7c83ff;
-            --text: #eef8ff;
-            --muted: #9eb2c7;
-            --border: rgba(100, 210, 255, 0.18);
-        }
-
         body {
             font-family: "Kanit", sans-serif;
-            background:
-                radial-gradient(circle at 10% 20%, rgba(85, 214, 255, 0.12), transparent 30%),
-                radial-gradient(circle at 90% 80%, rgba(124, 131, 255, 0.12), transparent 30%),
-                var(--bg);
-            color: var(--text);
-            line-height: 1.7;
-            overflow-x: hidden;
+            background: #f4f8fb;
+            color: #243447;
         }
 
-        /* Background Grid */
-        body::before {
-            content: "";
-            position: fixed;
-            inset: 0;
-            z-index: -1;
-            pointer-events: none;
-            opacity: 0.25;
-            background-image:
-                linear-gradient(rgba(85, 214, 255, 0.06) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(85, 214, 255, 0.06) 1px, transparent 1px);
-            background-size: 45px 45px;
-        }
+        /* ================= NAVBAR ================= */
 
-        /* Navbar */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 1000;
-            padding: 18px 7%;
+
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+
+            border-bottom: 1px solid #e3edf4;
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: auto;
+
             display: flex;
             justify-content: space-between;
             align-items: center;
 
-            background: rgba(7, 17, 31, 0.78);
-            backdrop-filter: blur(14px);
-            border-bottom: 1px solid var(--border);
+            padding: 18px 25px;
         }
 
         .logo {
-            font-size: 1.5rem;
+            font-size: 22px;
             font-weight: 700;
-            color: var(--primary);
+            color: #20a4f3;
         }
 
         .logo span {
-            color: white;
+            color: #243447;
         }
 
-        nav ul {
+        .nav-links {
             display: flex;
-            gap: 28px;
+            gap: 25px;
             list-style: none;
         }
 
-        nav a {
-            color: var(--muted);
+        .nav-links a {
             text-decoration: none;
+            color: #526579;
             transition: 0.3s;
         }
 
-        nav a:hover {
-            color: var(--primary);
+        .nav-links a:hover {
+            color: #20a4f3;
         }
 
-        /* Hero */
+        /* ================= HERO ================= */
+
         .hero {
             min-height: 100vh;
+
             display: flex;
-            align-items: center;
             justify-content: center;
-            padding: 120px 7% 70px;
+            align-items: center;
+
+            padding: 100px 25px 60px;
+
+            background:
+                radial-gradient(circle at 10% 20%, #dff5ff 0, transparent 30%),
+                radial-gradient(circle at 90% 80%, #e5f7ff 0, transparent 30%),
+                #f4f8fb;
         }
 
         .hero-container {
-            max-width: 1150px;
+            max-width: 1100px;
             width: 100%;
+
             display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            align-items: center;
+            grid-template-columns: 1.3fr 0.7fr;
             gap: 60px;
+
+            align-items: center;
         }
 
-        .badge {
-            display: inline-block;
-            padding: 7px 15px;
-            border-radius: 50px;
-            border: 1px solid var(--border);
-            background: rgba(85, 214, 255, 0.07);
-            color: var(--primary);
-            margin-bottom: 20px;
-        }
-
-        .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 5rem);
+        .hero-text h1 {
+            font-size: clamp(42px, 6vw, 72px);
             line-height: 1.1;
+            margin-bottom: 15px;
+        }
+
+        .hero-text h1 span {
+            color: #20a4f3;
+        }
+
+        .hero-text h2 {
+            font-size: 25px;
+            font-weight: 400;
+            color: #526579;
             margin-bottom: 20px;
         }
 
-        .hero h1 span {
-            color: var(--primary);
-            text-shadow: 0 0 25px rgba(85, 214, 255, 0.3);
-        }
-
-        .hero p {
-            color: var(--muted);
-            font-size: 1.1rem;
+        .hero-text p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #66788a;
             max-width: 650px;
-            margin-bottom: 30px;
         }
 
         .buttons {
+            margin-top: 30px;
+
             display: flex;
             gap: 15px;
             flex-wrap: wrap;
         }
 
         .btn {
-            padding: 12px 22px;
-            border-radius: 10px;
+            padding: 12px 24px;
+            border-radius: 12px;
+
             text-decoration: none;
             font-weight: 500;
+
             transition: 0.3s;
         }
 
         .btn-primary {
-            color: #04111c;
-            background: var(--primary);
-            box-shadow: 0 0 25px rgba(85, 214, 255, 0.25);
+            background: #20a4f3;
+            color: white;
+            box-shadow: 0 8px 25px rgba(32, 164, 243, 0.25);
         }
 
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 0 35px rgba(85, 214, 255, 0.45);
+            background: #168fd7;
         }
 
-        .btn-outline {
-            color: var(--text);
-            border: 1px solid var(--border);
-            background: rgba(255,255,255,0.03);
+        .btn-secondary {
+            border: 1px solid #cbdbe7;
+            color: #526579;
+            background: white;
         }
 
-        .btn-outline:hover {
-            border-color: var(--primary);
-            color: var(--primary);
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+            border-color: #20a4f3;
+            color: #20a4f3;
         }
 
-        /* Profile */
-        .profile-box {
-            display: flex;
-            justify-content: center;
+        /* ================= PROFILE ================= */
+
+        .profile-card {
+            background: rgba(255,255,255,0.8);
+
+            border: 1px solid #e0ebf2;
+            border-radius: 25px;
+
+            padding: 30px;
+
+            text-align: center;
+
+            box-shadow: 0 20px 50px rgba(50, 100, 130, 0.08);
+
+            transition: 0.4s;
         }
 
-        .profile {
-            width: 310px;
-            height: 310px;
+        .profile-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .profile-image {
+            width: 230px;
+            height: 230px;
+
+            margin: auto;
+            margin-bottom: 20px;
+
             border-radius: 50%;
-            padding: 8px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            box-shadow:
-                0 0 40px rgba(85, 214, 255, 0.2),
-                0 0 100px rgba(124, 131, 255, 0.12);
-            animation: floating 4s ease-in-out infinite;
-        }
 
-        .profile img {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
             object-fit: cover;
-            border: 6px solid var(--bg);
+
+            border: 6px solid white;
+
+            box-shadow:
+                0 0 0 5px #dff3ff,
+                0 15px 40px rgba(32, 164, 243, 0.15);
         }
 
-        @keyframes floating {
-            0%, 100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-12px);
-            }
+        .profile-card h3 {
+            font-size: 25px;
         }
 
-        /* Sections */
+        .profile-card p {
+            color: #718394;
+        }
+
+        /* ================= SECTIONS ================= */
+
         section {
-            padding: 100px 7%;
+            padding: 100px 25px;
+        }
+
+        .section-container {
+            max-width: 1100px;
+            margin: auto;
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 55px;
         }
 
         .section-title h2 {
-            font-size: 2.5rem;
-            margin-bottom: 8px;
+            font-size: 38px;
         }
 
         .section-title p {
-            color: var(--muted);
+            color: #7b8c9c;
+            margin-top: 8px;
         }
 
-        .container {
-            max-width: 1150px;
-            margin: auto;
-        }
+        /* ================= ABOUT ================= */
 
-        /* About */
         .about-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: 1fr 1fr;
             gap: 25px;
         }
 
-        .card {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 20px;
+        .info-card {
+            background: white;
+
             padding: 30px;
-            backdrop-filter: blur(12px);
+
+            border-radius: 20px;
+
+            border: 1px solid #e3edf4;
+
             transition: 0.3s;
         }
 
-        .card:hover {
-            transform: translateY(-6px);
-            border-color: rgba(85, 214, 255, 0.45);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        .info-card:hover {
+            transform: translateY(-5px);
+
+            border-color: #bce5fa;
+
+            box-shadow: 0 15px 35px rgba(50,100,130,0.08);
         }
 
-        .card h3 {
-            color: var(--primary);
-            margin-bottom: 15px;
-            font-size: 1.4rem;
+        .info-card h3 {
+            color: #20a4f3;
+            margin-bottom: 12px;
+            font-size: 23px;
         }
 
-        .card p {
-            color: var(--muted);
+        .info-card p {
+            color: #65788a;
+            line-height: 1.8;
         }
 
-        /* Skills */
+        /* ================= SKILLS ================= */
+
         .skills {
+            background: #edf7fc;
+        }
+
+        .skills-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-        }
-
-        .skill {
-            text-align: center;
-        }
-
-        .skill i {
-            font-size: 3rem;
-            color: var(--primary);
-            margin-bottom: 15px;
-        }
-
-        .skill h3 {
-            margin-bottom: 8px;
-        }
-
-        .skill p {
-            color: var(--muted);
-        }
-
-        /* Hobby */
-        .hobbies {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
-        }
-
-        .hobby {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .hobby-icon {
-            min-width: 65px;
-            height: 65px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 15px;
-            background: rgba(85, 214, 255, 0.08);
-            border: 1px solid var(--border);
-            color: var(--primary);
-            font-size: 1.7rem;
-        }
-
-        /* Contact */
-        .contact-box {
-            max-width: 750px;
-            margin: auto;
-            text-align: center;
-        }
-
-        .email {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            margin-top: 25px;
-            padding: 15px 25px;
-            color: var(--primary);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            text-decoration: none;
-            background: rgba(85, 214, 255, 0.05);
-            transition: 0.3s;
-        }
-
-        .email:hover {
-            transform: translateY(-3px);
-            background: rgba(85, 214, 255, 0.1);
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 30px 20px;
-            color: var(--muted);
-            border-top: 1px solid var(--border);
-        }
-
-        footer span {
-            color: var(--primary);
-        }
-
-        /* Scroll animation */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: 0.8s ease;
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Responsive */
-        @media (max-width: 800px) {
-            nav {
-                padding: 15px 5%;
-            }
-
-            nav ul {
-                display: none;
-            }
-
-            .hero-container {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .hero p {
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            .buttons {
-                justify-content: center;
-            }
-
-            .profile-box {
-                order: -1;
-            }
-
-            .profile {
-                width: 230px;
-                height: 230px;
-            }
-
-            .about-grid,
-            .skills,
-            .hobbies {
-                grid-template-columns: 1fr;
-            }
-
-            section {
-                padding: 75px 5%;
-            }
-        }
-    </style>
-</head>
-
-<body>
-
-    <!-- Navigation -->
-    <nav>
-        <div class="logo">
-            W<span>.</span>S
-        </div>
-
-        <ul>
-            <li><a href="#home">หน้าแรก</a></li>
-            <li><a href="#about">เกี่ยวกับฉัน</a></li>
-            <li><a href="#skills">ทักษะ</a></li>
-            <li><a href="#hobbies">งานอดิเรก</a></li>
-            <li><a href="#contact">ติดต่อ</a></li>
-        </ul>
-    </nav>
-
-
-    <!-- Hero -->
-    <section class="hero" id="home">
-        <div class="hero-container">
-
-            <div class="hero-content reveal">
-
-                <div class="badge">
-                    <i class="fa-solid fa-code"></i>
-                    Digital Business Innovation Student
-                </div>
-
-                <h1>
-                    สวัสดีครับ ผม<br>
-                    <span>วิศวชิต ศรีรัง</span>
-                </h1>
-
-                <p>
-                    นักศึกษาคณะเทคโนโลยีสารสนเทศ
-                    สาขานวัตกรรมธุรกิจดิจิทัล
-                    ผู้ที่สนใจด้านเทคโนโลยี การพัฒนาเว็บไซต์
-                    และการสร้างสรรค์สิ่งใหม่ ๆ ด้วยเทคโนโลยี
-                </p>
-
-                <div class="buttons">
-                    <a href="#about" class="btn btn-primary">
-                        <i class="fa-solid fa-user"></i>
-                        รู้จักผม
-                    </a>
-
-                    <a href="#contact" class="btn btn-outline">
-                        <i class="fa-solid fa-envelope"></i>
-                        ติดต่อผม
-                    </a>
-                </div>
-
-            </div>
-
-
-            <div class="profile-box reveal">
-
-                <!-- เปลี่ยน profile.jpg เป็นชื่อไฟล์รูปของคุณ -->
-                <div class="profile">
-                    <img src="profile.jpg" alt="รูปโปรไฟล์ของวิศวชิต ศรีรัง">
-                </div>
-
-            </div>
-
-        </div>
-    </section>
-
-
-    <!-- About -->
-    <section id="about">
-
-        <div class="container">
-
-            <div class="section-title reveal">
-                <h2>เกี่ยวกับฉัน</h2>
-                <p>About Me</p>
-            </div>
-
-            <div class="about-grid">
-
-                <div class="card reveal">
-                    <h3>
-                        <i class="fa-solid fa-graduation-cap"></i>
-                        การศึกษา
-                    </h3>
-
-                    <p>
-                        ปัจจุบันกำลังศึกษาอยู่ใน
-                        <strong>คณะเทคโนโลยีสารสนเทศ</strong>
-                        สาขา <strong>นวัตกรรมธุรกิจดิจิทัล</strong>
-                    </p>
-                </div>
-
-                <div class="card reveal">
-                    <h3>
-                        <i class="fa-solid fa-lightbulb"></i>
-                        ความสนใจ
-                    </h3>
-
-                    <p>
-                        สนใจเทคโนโลยี การพัฒนาเว็บไซต์
-                        การออกแบบเว็บไซต์ และการนำเทคโนโลยี
-                        มาประยุกต์ใช้กับธุรกิจดิจิทัล
-                    </p>
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- Skills -->
-    <section id="skills">
-
-        <div class="container">
-
-            <div class="section-title reveal">
-                <h2>ทักษะของฉัน</h2>
-                <p>My Skills</p>
-            </div>
-
-            <div class="skills">
-
-                <div class="card skill reveal">
-                    <i class="fa-brands fa-html5"></i>
-                    <h3>HTML</h3>
-                    <p>
-                        สามารถสร้างโครงสร้างเว็บไซต์
-                        และจัดรูปแบบเนื้อหาด้วย HTML
-                    </p>
-                </div>
-
-                <div class="card skill reveal">
-                    <i class="fa-brands fa-css3-alt"></i>
-                    <h3>CSS</h3>
-                    <p>
-                        สามารถออกแบบ UI
-                        จัด Layout และสร้างเว็บไซต์ Responsive
-                    </p>
-                </div>
-
-                <div class="card skill reveal">
-                    <i class="fa-brands fa-js"></i>
-                    <h3>JavaScript</h3>
-                    <p>
-                        สามารถเพิ่มความสามารถ
-                        และ Interactive ให้กับเว็บไซต์
-                    </p>
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- Hobbies -->
-    <section id="hobbies">
-
-        <div class="container">
-
-            <div class="section-title reveal">
-                <h2>งานอดิเรก</h2>
-                <p>My Hobbies</p>
-            </div>
-
-            <div class="hobbies">
-
-                <div class="card hobby reveal">
-                    <div class="hobby-icon">
-                        <i class="fa-solid fa-gamepad"></i>
-                    </div>
-
-                    <div>
-                        <h3>เล่นเกมบน PC</h3>
-                        <p>
-                            ใช้เวลาว่างเล่นเกมบนคอมพิวเตอร์
-                            เพื่อความสนุกและผ่อนคลาย
-                        </p>
-                    </div>
-                </div>
-
-
-                <div class="card hobby reveal">
-                    <div class="hobby-icon">
-                        <i class="fa-solid fa-table-tennis-paddle-ball"></i>
-                    </div>
-
-                    <div>
-                        <h3>เล่นตีแบต</h3>
-                        <p>
-                            ออกกำลังกายและเล่นแบดมินตัน
-                            ในเวลาว่าง
-                        </p>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- Contact -->
-    <section id="contact">
-
-        <div class="container">
-
-            <div class="contact-box reveal">
-
-                <div class="section-title">
-                    <h2>ติดต่อฉัน</h2>
-                    <p>Contact Me</p>
-                </div>
-
-                <p style="color: var(--muted);">
-                    หากต้องการติดต่อหรือพูดคุยเกี่ยวกับงาน
-                    สามารถติดต่อผมผ่าน Email ได้เลยครับ
-                </p>
-
-                <a
-                    class="email"
-                    href="mailto:witsawachit.sre@spumail.net"
-                >
-                    <i class="fa-solid fa-envelope"></i>
-                    witsawachit.sre@spumail.net
-                </a>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- Footer -->
-    <footer>
-        <p>
-            © <span id="year"></span>
-            Witsawachit Sreerang.
-            All Rights Reserved.
-        </p>
-    </footer>
-
-
-    <!-- JavaScript -->
-    <script>
-
-        // แสดงปีปัจจุบัน
-        document.getElementById("year").textContent =
-            new Date().getFullYear();
-
-
-        // Scroll Reveal Animation
-        const reveals = document.querySelectorAll(".reveal");
-
-        function revealOnScroll() {
-
-            reveals.forEach((element) => {
-
-                const windowHeight = window.innerHeight;
-                const elementTop =
-                    element.getBoundingClientRect().top;
-
-                if (elementTop < windowHeight - 100) {
-                    element.classList.add("active");
-                }
-
-            });
-
-        }
-
-        window.addEventListener("scroll", revealOnScroll);
-
-        // เรียกครั้งแรกตอนเปิดเว็บ
-        revealOnScroll();
-
-    </script>
-
-</body>
-</html>
 ```
