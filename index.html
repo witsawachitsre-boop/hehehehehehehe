@@ -1,0 +1,300 @@
+```html
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Portfolio | อัษฎาวุธ ศิริวิมลกุล</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Kanit", sans-serif;
+            background: #07111f;
+            color: #eaf6ff;
+            line-height: 1.7;
+        }
+
+        /* ===== NAVBAR ===== */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+
+            background: rgba(7, 17, 31, 0.75);
+            backdrop-filter: blur(15px);
+
+            border-bottom: 1px solid rgba(87, 201, 255, 0.15);
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 15px 25px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 600;
+            color: #62d9ff;
+        }
+
+        .logo span {
+            color: #ffffff;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #c9d9e6;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #62d9ff;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+
+            padding: 100px 20px 60px;
+
+            background:
+                radial-gradient(circle at 20% 20%, rgba(0, 200, 255, 0.13), transparent 30%),
+                radial-gradient(circle at 80% 70%, rgba(0, 140, 255, 0.10), transparent 30%),
+                #07111f;
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .profile {
+            width: 170px;
+            height: 170px;
+
+            border-radius: 50%;
+            object-fit: cover;
+
+            border: 4px solid #62d9ff;
+
+            box-shadow:
+                0 0 25px rgba(98, 217, 255, 0.35);
+
+            margin-bottom: 25px;
+        }
+
+        .hello {
+            color: #62d9ff;
+            font-size: 18px;
+        }
+
+        .hero h1 {
+            font-size: clamp(38px, 7vw, 70px);
+            margin: 8px 0;
+
+            background: linear-gradient(
+                90deg,
+                #62d9ff,
+                #9be7ff,
+                #ffffff
+            );
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero h2 {
+            font-weight: 400;
+            color: #b7c9d8;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            color: #9db2c3;
+            max-width: 650px;
+            margin: auto;
+        }
+
+        .buttons {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 11px 25px;
+
+            border-radius: 30px;
+
+            text-decoration: none;
+            font-weight: 500;
+
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: #62d9ff;
+            color: #06111c;
+
+            box-shadow: 0 0 20px rgba(98, 217, 255, 0.25);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 30px rgba(98, 217, 255, 0.45);
+        }
+
+        .btn-outline {
+            border: 1px solid #62d9ff;
+            color: #62d9ff;
+        }
+
+        .btn-outline:hover {
+            background: #62d9ff;
+            color: #06111c;
+        }
+
+        /* ===== GENERAL ===== */
+        section {
+            padding: 90px 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            color: #62d9ff;
+        }
+
+        .section-title p {
+            color: #8399aa;
+        }
+
+        /* ===== ABOUT ===== */
+        .about {
+            background: #091727;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.035);
+
+            border: 1px solid rgba(98, 217, 255, 0.12);
+
+            border-radius: 18px;
+
+            padding: 30px;
+
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+
+            border-color: rgba(98, 217, 255, 0.4);
+
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+        }
+
+        .card h3 {
+            color: #62d9ff;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: #a9bbc9;
+        }
+
+        /* ===== SKILLS ===== */
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .skill {
+            text-align: center;
+            padding: 35px 20px;
+        }
+
+        .skill-icon {
+            font-size: 50px;
+            margin-bottom: 15px;
+        }
+
+        .skill h3 {
+            margin-bottom: 8px;
+        }
+
+        .skill p {
+            color: #879baa;
+        }
+
+        /* ===== HOBBY ===== */
+        .hobbies {
+            background: #091727;
+        }
+
+        .hobby-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .hobby {
+            padding: 35px;
+
+            border-radius: 18px;
+
+            background: rgba(255, 255, 255, 0.035);
+
+            border: 1px solid rgba(98, 217, 255, 0.12);
+
+            text-al
+```
